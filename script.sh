@@ -13,7 +13,7 @@ invert='\e[7m'
 redBk='\e[41m'
 end='\e[0m'
 
-echo -e "\e[1m\e[7m  ABITTI-tikkuohjelma  \e[0m"
+echo -e "\e[1m\e[7m  ABITTI-tikkuohjelma aka USB-paahdin  \e[0m"
 
 cd $path
 
