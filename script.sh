@@ -382,9 +382,9 @@ function writeSticks {
 		exit
 	fi
 
-
 	cd "${path}images/${currentVersion}"
 	startWriting $currentVersion $fileToWrite
+	
 }
 
 case $action in
@@ -408,6 +408,7 @@ case $action in
 		checkUpdates server
 		;;
 esac
+
 
 echo -e "\nSulje ikkuna painamalla ENTER-näppäintä."
 read
