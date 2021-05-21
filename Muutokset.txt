@@ -1,15 +1,14 @@
 MUUTOKSET:
 
 Versio 1.1
-	- USB-tikkunen kirjoittamisen ja lukemisen eteneminen näytetään käyttäjälle. (write_dd-fi-progress_bar.sh)
 	- Poistetaan alkuperäinen zip-tiedosto purkamisen jälkeen levytilan säästämiseksi. (script.sh/checkUpdates)
 	- Skripteistä on poistettu kiinteästi määritetyt polut, joten skriptit voi siirtaa kansioineen eri hakemistoon. (script.sh, write_dd-fi-progress_bar.sh)
-	- Tarkistus onko  levykuva olemassa, kun yritetään aloittaa kirjoitusta. Ilmoitetaan käyttäjälle ongelmasta. (script.sh/writeSticks ja writeSticksOld)
+	- Tarkistus onko levykuva olemassa, kun yritetään aloittaa kirjoitusta. Ilmoitetaan käyttäjälle ongelmasta. (script.sh/writeSticks ja writeSticksOld)
 	- Tarkistetaan päivityksessä onko versiotiedoston sisältö kelvollinen kokonaisluku. Jos ei ole korjataan ongelma asettamalla versioksi 0. (script.sh/checkUpdates)
 	- Tarkistetaan aloitettaessa kirjoitusta, että onko versiotiedosto olemassa ja kelvollinen. Jos ei ole kehotetaan käyttäjään ajamaan päivitysten tarkistus. (script.sh/writeSticks)
 	- Kun tarkistetaan päivityksiä ja uusin levykuva on ladattu jo aikaisemmin,  varmistetaan, että levykuva on edelleen tietokoneella. Jos levykuvaa ei löydy, se voidaan ladata uudelleen. (script.sh/checkUpdates)
 
 TODO
-	-  Aloitettaessa kirjoitusta levykuvan tarkistamisen (onko levykuva tietokoneella) lisäksi levykuva ladataan tarvittaessa Abitti-palvelimelta.. (script.sh) 
-		- Siirrä levykuvan lataus oman funktioon funktiosta checkUpdates. (script.sh)
+	- Mahdollisuus erottaa samalla viikolla julkaistu päivitys aikaisemmasta, kun versiomerkinnässä vain viimeinen merkki on muuttunut (ABITTI2118E).
+	- Siirrä levykuvan lataus oman funktioon funktiosta checkUpdates. (script.sh)
 	- Mahdollisuus ladata vanhoja levykuvia. (script.sh/checkUpdates)
