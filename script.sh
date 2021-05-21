@@ -6,8 +6,6 @@
 # Lisätään merkki /, koska  polun oletetaan olevan skriptissä muodossa /home/user/usb-paahdin/ 
 path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )""/"
 
-#path="/home/user/usb-paahdin2/"
-
 clear
 red='\e[31m'
 invert='\e[7m'
@@ -16,7 +14,6 @@ redBk='\e[41m'
 end='\e[0m'
 
 echo -e "\e[1m\e[7m  ABITTI-tikkuohjelma  \e[0m"
-
 
 cd $path
 
@@ -35,9 +32,9 @@ function getURL {
 }
 
 # startWriting
-# starts write_dd-fi-progress_bar.sh script provided by YTL
+# starts write_dd.py script provided by YTL
 # $1 - version number
-# $2 - file name to write (usually koe.dd or ktp.dd)
+# $2 - file name to write (usually koe.img or ktp.img)
 function startWriting {
 	# Confirm that user really wants to write server stick
 	if [[ $2 == *"ktp"* ]]; then
@@ -62,7 +59,7 @@ function startWriting {
 }	
 
 # writeSticksOld
-# writes a specified image using write_dd-fi-progress_bar.sh
+# writes a specified image using write_dd.py 
 # no parameters
 function writeSticksOld {
 	echo -e "${redBk}\nHUOM! OLET KIRJOITTAMASSA VANHAA VERSIOTA ABITISTA.\nTätä toimintoa ei ole yleensä tarpeen käyttää.${end}"
@@ -80,7 +77,7 @@ function writeSticksOld {
 		select yn in "Opiskelijan tikuiksi" "Palvelimen tikuiksi"; do
 			case $yn in
 				"Opiskelijan tikuiksi")
-					fileToWrite='koe.dd'
+					fileToWrite='koe.img'
 					# Tarkistetaan onko kirjoitettava image olemassa.
 					if [ ! -f "${path}images/${d}/${fileToWrite}" ]; then
 						echo -e "${redBk}Virhe:${end} tiedostoa ${path}images/${currentVersion}/${fileToWrite} ei löydy."
@@ -94,7 +91,7 @@ function writeSticksOld {
 					break
 					;;
 				"Palvelimen tikuiksi")
-					fileToWrite='ktp.dd'
+					fileToWrite='ktp.img'
 					# Tarkistetaan onko kirjoitettava image olemassa.
 					if [ ! -f "${path}images/${d}/${fileToWrite}" ]; then
 						echo -e "${redBk}Virhe:${end} tiedostoa ${path}images/${currentVersion}/${fileToWrite} ei löydy."
@@ -144,8 +141,7 @@ function checkUpdates {
 	# Fetch current version as variable
 	currentVersion="`cat ${versionFile}`"
 
-	# Tarkistetaan onko currentVersion kokonaisluku. Jos ei ole (esim. tekstiä tai tyhjä), asetetaan arvoksi 0.
-	# Poistetaan viimeinen satunnainen merkki versiota kuten ABITTI2106S ja SERVER21066.
+	# Poistetaan viimeinen satunnainen merkki versiosta kuten ABITTI2106S ja SERVER21066.
 	currentVersionNumbers=${currentVersion::-1}
 	# Poistetaan kaikki merkit, jotka eivät ole numeroita.
 	currentVersionNumbers=${currentVersionNumbers//[!0-9]/}
@@ -160,7 +156,7 @@ function checkUpdates {
 	fi
 
 
-	# Ei tarvittane enää.
+	# 
 	if ! [[ "${currentVersionNumbers}" =~ ^[0-9]+$ ]]
 	then
 		currentVersion=0
@@ -177,8 +173,8 @@ function checkUpdates {
 		mkdir -p "${path}images/${latestVersion}"
 		cd "${path}images/${latestVersion}"
 
-		# Koodiin on lisätty tilapäinen muutos, joka tarkistaa löytyykö aikaisemmin levyltä ladattu image.
-		# Jos ei löydy, ladataan image uudellleen. Tämä tarkistus toimii vai, jos ladatusta versiosta uudempaa versiota ei ole saatavilla.
+		# Koodiin on lisätty tilapäinen muutos, joka tarkistaa löytyykö levyltä aikaisemmin ladattu image.
+		# Jos ei löydy, ladataan image uudellleen. Tämä tarkistus toimii vain, jos ladatusta versiosta uudempaa versiota ei ole saatavilla.
 		imageRedownload=0	# Oletuksena image ei tarvitse ladata uudelleen.
 
 		if [ $currentVersionNumbers == $latestVersionNumbers ]; then
@@ -208,7 +204,6 @@ function checkUpdates {
 				echo -e "Tietokoneessa on versio ${currentVersion}, mutta uusin on ${latestVersion}."
 				echo -e "Haluatko ladata uusimman version?"
 			fi
-
 
 			select yn in "Kyllä" "Ei"; do
 				case $yn in
@@ -242,6 +237,7 @@ function checkUpdates {
 			if [ $? -eq 0 ]; then
 				# Succeeded, check MD5 sum
 				echo "Tarkistetaan ladattua tiedostoa."		
+				# md5-tiedostoa ei ole enää saatavilla, joten tarkistus ohitetaan.
 				# if md5sum -c "${fileName}.md5"; then
 				if [ true ]; then
 					# Clear terminal so user can easily read (wget printed a lot stuff)
