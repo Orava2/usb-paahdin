@@ -21,10 +21,12 @@ Oppilastikkujen kirjoitus: scriptStudent.sh
 
 Palvelintikkujen kirjoitus: scriptServer.sh
 
-Päivitysten tarkistus: scriptUpdate.sh
-
 Vanhan version kirjoitus: scriptOld.sh
 
+Päivitysten tarkistus: scriptUpdate.sh
+
 USB-paahtimen päivitys: updateScriptFiles.sh
+
+Valikko edellä mainituille toiminnoille: USB-paahdin.sh
 
 Uusimman ladatun oppilastikun ja palvelimen versiot: versionStudent.txt ja versionServer.txt
