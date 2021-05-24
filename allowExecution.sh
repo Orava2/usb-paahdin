@@ -5,6 +5,9 @@ echo "Setting execution rights"
 chmod a+x allowExecution.sh
 echo "chmod a+x allowExecution.sh"
 
+chmod a+x usb-paahdin.sh
+echo "chmod a+x usb-paahdin.sh"
+
 chmod a+x script.sh
 echo "chmod a+x script.sh"
 
