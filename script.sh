@@ -68,10 +68,11 @@ function writeSticksOld {
 	echo    # (optional) move to a new line
 	if [[ $REPLY =~ ^[Yy]$ ]]
 	then
-		cd "${path}images"
+#		cd "${path}images"
     		printf "Valitse haluamasi versio kirjoittamalla kansion numero ja painamalla enter:\n"
-		select d in */; do test -n "$d" && break; echo ">>> Valinta ei kelpaa, yritä uudelleen"; done
-		cd "$d" && pwd
+#		select d in */; do test -n "$d" && break; echo ">>> Valinta ei kelpaa, yritä uudelleen"; done
+		select d in ${path}images/*/; do test -n "$d" && break; echo ">>> Valinta ei kelpaa, yritä uudelleen"; done
+#		cd "$d" && pwd
 
 		if [[ $d == *"ABITTI"* ]]; then
 			fileToWrite='koe.img'
