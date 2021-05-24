@@ -20,6 +20,9 @@ echo "chmod +x scriptStudent.sh"
 chmod +x scriptUpdate.sh
 echo "chmod +x scriptUpdate.sh"
 
+chmod +x updateScriptFiles.sh
+echo "chmod +x updateScriptFiles.sh"
+
 chmod +x usb-monster/dd-curses/write_dd.py
 echo "chmod +x usb-monster/dd-curses/write_dd.py"
 
