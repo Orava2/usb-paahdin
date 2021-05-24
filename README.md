@@ -2,10 +2,11 @@
 
 Asennus:
 
-audo apt install pv git python2 python-psutil wget unzip
+sudo apt install pv git python2 python-psutil wget unzip
 
 git clone https://github.com/Orava2/usb-paahdin
 
+Poista automount-ominaisuus. Xubuntussa vasemman yläreunan kuvake -> Asetukset-kuvake (Settings) -> Irrotettavat asemat ja taltiot (Removable Drives and Mesia) -> poista ruksit kaikista kohdassa Irrotettavat tietovälineet (Removable Storage).
 
 
 ---- 
