@@ -2,7 +2,7 @@
 
 Asennus:
 
-audo apt install pv git python2 wget unzip
+audo apt install pv git python2 python-psutil wget unzip
 
 git clone https://github.com/Orava2/usb-paahdin
 
