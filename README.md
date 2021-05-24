@@ -1,5 +1,7 @@
 # usb-paahdin
 
+audo apt install pv git python wget unzip
+
 Oppilastikkujen kirjoitus: scriptStudent.sh
 
 Palvelintikkujen kirjoitus: scriptServer.sh
