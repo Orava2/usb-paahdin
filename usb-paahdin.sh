@@ -23,6 +23,11 @@ echo -n "#? "
         esac
 }
 
+if (( $EUID != 0 )); then
+    echo "Käynnistä skripti: sudo ./usb-paahdin.sh"
+    exit
+fi
+
 
 menu
 
