@@ -21,4 +21,6 @@ Päivitysten tarkistus: scriptUpdate.sh
 
 Vanhan version kirjoitus: scriptOld.sh
 
+USB-paahtimen päivitys: updateScriptFiles.sh
+
 Uusimman ladatun oppilastikun ja palvelimen versiot: versionStudent.txt ja versionServer.txt

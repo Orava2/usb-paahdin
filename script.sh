@@ -90,41 +90,8 @@ function writeSticksOld {
 		else
 			# Aloita kirjoitus
 			startWriting $d $fileToWrite
+			exit
 		fi
-
-#		echo "Kirjoitetaanko tikut opiskelijan vai palvelimen tikuiksi?"
-#		select yn in "Opiskelijan tikuiksi" "Palvelimen tikuiksi"; do
-#			case $yn in
-#				"Opiskelijan tikuiksi")
-#					fileToWrite='koe.img'
-#					# Tarkistetaan onko kirjoitettava image olemassa.
-#					if [ ! -f "${path}images/${d}/${fileToWrite}" ]; then
-#						echo -e "${redBk}Virhe:${end} tiedostoa ${path}images/${d}${fileToWrite} ei löydy."
-#						#echo "Aja päivitysten tarkistus."
-#						echo -e "\nSulje ikkuna painamalla ENTER-näppäintä."
-#						read
-#						exit
-#					fi
-#
-#					startWriting $d $fileToWrite
-#					break
-#					;;
-#				"Palvelimen tikuiksi")
-#					fileToWrite='ktp.img'
-#					# Tarkistetaan onko kirjoitettava image olemassa.
-#					if [ ! -f "${path}images/${d}/${fileToWrite}" ]; then
-#						echo -e "${redBk}Virhe:${end} tiedostoa ${path}images/${d}${fileToWrite} ei löydy."
-#						#echo "Aja päivitysten tarkistus."
-#						echo -e "\nSulje ikkuna painamalla ENTER-näppäintä."
-#						read
-#						exit
-#					fi
-#
-#					startWriting $d $fileToWrite
-#					break
-#					;;
-#			esac
-#		done
 	fi
 }
 

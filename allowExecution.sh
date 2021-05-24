@@ -2,28 +2,28 @@
 
 echo "Setting execution rights"
 
-chmod +x allowExecution.sh
-echo "chmod +x allowExecution.sh"
+chmod a+x allowExecution.sh
+echo "chmod a+x allowExecution.sh"
 
-chmod +x script.sh
-echo "chmod +x script.sh"
+chmod a+x script.sh
+echo "chmod a+x script.sh"
 
-chmod +x scriptOld.sh
-echo "chmod +x scriptOld.sh"
+chmod a+x scriptOld.sh
+echo "chmod a+x scriptOld.sh"
 
-chmod +x scriptServer.sh
-echo "chmod +x scriptServer.sh"
+chmod a+x scriptServer.sh
+echo "chmod a+x scriptServer.sh"
 
-chmod +x scriptStudent.sh
-echo "chmod +x scriptStudent.sh"
+chmod a+x scriptStudent.sh
+echo "chmod a+x scriptStudent.sh"
 
-chmod +x scriptUpdate.sh
-echo "chmod +x scriptUpdate.sh"
+chmod a+x scriptUpdate.sh
+echo "chmod a+x scriptUpdate.sh"
 
-chmod +x updateScriptFiles.sh
-echo "chmod +x updateScriptFiles.sh"
+chmod a+x updateScriptFiles.sh
+echo "chmod a+x updateScriptFiles.sh"
 
 chmod +x usb-monster/dd-curses/write_dd.py
-echo "chmod +x usb-monster/dd-curses/write_dd.py"
+echo "chmod a+x usb-monster/dd-curses/write_dd.py"
 
 echo "Done"
