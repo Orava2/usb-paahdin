@@ -80,7 +80,7 @@ function writeSticksOld {
 					fileToWrite='koe.img'
 					# Tarkistetaan onko kirjoitettava image olemassa.
 					if [ ! -f "${path}images/${d}/${fileToWrite}" ]; then
-						echo -e "${redBk}Virhe:${end} tiedostoa ${path}images/${currentVersion}/${fileToWrite} ei löydy."
+						echo -e "${redBk}Virhe:${end} tiedostoa ${path}images/${d}/${fileToWrite} ei löydy."
 						#echo "Aja päivitysten tarkistus."
 						echo -e "\nSulje ikkuna painamalla ENTER-näppäintä."
 						read
@@ -94,7 +94,7 @@ function writeSticksOld {
 					fileToWrite='ktp.img'
 					# Tarkistetaan onko kirjoitettava image olemassa.
 					if [ ! -f "${path}images/${d}/${fileToWrite}" ]; then
-						echo -e "${redBk}Virhe:${end} tiedostoa ${path}images/${currentVersion}/${fileToWrite} ei löydy."
+						echo -e "${redBk}Virhe:${end} tiedostoa ${path}images/${d}/${fileToWrite} ei löydy."
 						#echo "Aja päivitysten tarkistus."
 						echo -e "\nSulje ikkuna painamalla ENTER-näppäintä."
 						read
