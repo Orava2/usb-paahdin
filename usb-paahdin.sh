@@ -1,4 +1,7 @@
 #!/bin/bash
+
+redBk='\e[41m'
+end='\e[0m'
  
 function menu {
 clear
@@ -19,7 +22,7 @@ echo -n "#? "
                 4) ./scriptUpdate.sh ; menu ;;
                 5) ./updateScriptFiles.sh ;;
                         0) exit 0 ;;
-                        *) echo -e $red"Väärä valinta!"$clear;sleep 1; menu;;
+                        *) echo -e ${redBk}"Virheellinen valinta!"${end};sleep 1; menu;;
         esac
 }
 
