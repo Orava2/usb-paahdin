@@ -90,7 +90,6 @@ function writeSticksOld {
 		else
 			# Aloita kirjoitus
 			startWriting $d $fileToWrite
-			exit
 		fi
 	fi
 }
@@ -370,7 +369,7 @@ function writeSticks {
 
 	cd "${path}images/${currentVersion}"
 	startWriting $currentVersion $fileToWrite
-	
+		
 }
 
 case $action in
@@ -396,7 +395,7 @@ case $action in
 esac
 
 
-echo -e "\nSulje ikkuna painamalla ENTER-näppäintä."
+echo -e "\nSulje USB-paahdin ikkuna painamalla ENTER-näppäintä."
 read
 
 
