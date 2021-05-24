@@ -3,13 +3,13 @@
 function menu {
 clear
 echo -ne "\e[1m\e[7m  ABITTI-tikkuohjelma aka USB-paahdin  \e[0m
-Valitse toiminto!
-1) Kirjoita opiskelijan tikuiksi
-2) Kirjoita palvelintikuiksi
-3) Kirjoita vanha versio
-4) Tarkista levykuvien päivitykset
-5) Tarkista USB-paahtimen päivitykset
-0) Lopeta\n"
+Valitse toiminto
+ 1) Kirjoita opiskelijan tikuiksi
+ 2) Kirjoita palvelintikuiksi
+ 3) Kirjoita vanha versio
+ 4) Tarkista levykuvien päivitykset
+ 5) Tarkista USB-paahtimen päivitykset
+ 0) Lopeta\n"
 echo -n "#? "
         read a
         case $a in
@@ -22,11 +22,6 @@ echo -n "#? "
                         *) echo -e $red"Väärä valinta!"$clear;sleep 1; menu;;
         esac
 }
-
-if (( $EUID != 0 )); then
-    echo "Käynnistä skripti: sudo ./usb-paahdin.sh"
-    exit
-fi
 
 
 menu
