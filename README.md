@@ -1,6 +1,11 @@
 # usb-paahdin
 
+Asennus:
 audo apt install pv git python wget unzip
+
+git clone https://github.com/Orava2/usb-paahdin
+
+---- 
 
 Oppilastikkujen kirjoitus: scriptStudent.sh
 
