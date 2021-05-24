@@ -1,6 +1,6 @@
 # usb-paahdin
 
-## Asennus
+## Asennus Xubuntu-käyttöjärjestelmään
 
 sudo apt install pv git python2 python-psutil wget unzip
 
