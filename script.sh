@@ -250,7 +250,6 @@ function checkUpdates {
 		else
 			# We already have the latest version, so let's start writing.
 			echo "Uusia päivityksiä ei ole saatavilla."
-			break
 			# echo currentVersionNumbers: $currentVersionNumbers
 			# echo latestVersionNumbers: $latestVersionNumbers
 		fi
