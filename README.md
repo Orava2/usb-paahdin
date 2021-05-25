@@ -1,4 +1,4 @@
-# usb-paahdin
+# USB-paahdin
 
 ## Asennus Xubuntu-käyttöjärjestelmään
 
