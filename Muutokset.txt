@@ -3,6 +3,7 @@ MUUTOKSET:
 Versio 1.4
 	- Korjattu vanhan levykuvan kirjoittaminen. Huom! Levykuva on täytynyt ladata aikaisemmin, kun se on ollut jaossa.
 	- Lisätty päävalikko usb-paahdin.sh.
+	- Lisätty skripti updateScriptFiles.sh, joka päivittää USB-paahtimen tiedostot GitHubista.
 
 TODO
 	- Mahdollisuus erottaa samalla viikolla julkaistu päivitys aikaisemmasta, kun versiomerkinnässä vain viimeinen merkki on muuttunut (ABITTI2118E).
