@@ -5,7 +5,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo -e "\e[1m\e[7m  ABITTI-tikkuohjelma aka USB-paahdin  \e[0m"
 echo "Kumpi levykuva päivitetään?"
-select yn in "Opiskelijan tikut" "Palvelimen tikut"; do
+select yn in "Opiskelijan tikut" "Palvelimen tikut" "Lopeta"; do
 	case $yn in
 		"Opiskelijan tikut")
 			action='updateStudent'
@@ -15,6 +15,9 @@ select yn in "Opiskelijan tikut" "Palvelimen tikut"; do
 		"Palvelimen tikut")
 			action='updateServer'
 			. ${DIR}/script.sh
+			break
+			;;
+		"Lopeta")
 			break
 			;;
 	esac
