@@ -16,7 +16,7 @@ Poista automount-ominaisuus. Xubuntussa vasemman yläreunan kuvake -> Asetukset 
 
 Halutessasi voit poistaa myös USB-tikkujen kuvakkeet työpöydältä. Vasemman yläreunan kuvake -> Asetukset (Settings) -> Työpöytä (Desktop) -> Kuvakkeet (Icons) -> Oletuskuvakkeet-kohdasta (Default Icons) poista rasti kohdasta Irrotettavat taltiot (Removable Devices).
 
-Aja skriptit sudo:lla, esimerkiksi `sudo ./scriptStudent.sh`. Jos haluat, että sudo ei kysy salasanaa, avaa terminaali ja kirjoita `sudo visudo`. Lisää tiedoston loppuun rivi kayttajatunnuksesi `ALL=(ALL) NOPASSWD: ALL`
+Aja skriptit sudo:lla, esimerkiksi `sudo ./scriptStudent.sh`. Jos haluat, että sudo ei kysy salasanaa, avaa terminaali ja kirjoita `sudo visudo`. Lisää tiedoston loppuun rivi ` kayttajatunnuksesi ALL=(ALL) NOPASSWD: ALL`
 
 ---- 
 
