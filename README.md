@@ -3,7 +3,7 @@
 ## Asennus Xubuntu-käyttöjärjestelmään
 
 ```
-sudo apt install pv git python2 python-psutil wget unzip
+sudo apt install pv git python2 python-psutil wget unzip coreutils
 
 git clone https://github.com/Orava2/usb-paahdin
 
