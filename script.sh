@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Versio 1.3
+# Versio 1.4
 
 # Otetaan talteen se hakemistopolku, jossa ajossa oleva skripti sijaitsee. Esim. /home/user/usb-paahdin
 # Lisätään merkki /, koska  polun oletetaan olevan skriptissä muodossa /home/user/usb-paahdin/ 
