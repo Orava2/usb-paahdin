@@ -1,5 +1,7 @@
 # USB-paahdin
 
+USB-paahdin on joukko Bash-skriptejä, joilla voi ladata sekä päivittää Abitin levykuvat ja kirjoittaa uusimman tai aikaisemmin ladatun levykuvat USB-tikuille. Itse kirjoittamiseen käytetään Digabi-projektin USB-monsteria https://github.com/digabi/usb-monster .
+
 ## Asennus Xubuntu-käyttöjärjestelmään
 
 ```
