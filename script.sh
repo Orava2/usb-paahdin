@@ -233,7 +233,7 @@ function checkUpdates {
 					# -qq = very quiet operation
 					# Purun jälkeen poistetaan zip-tiedosto. Tulostukset myöhemmin mahdollisesti logiin.
 					unzip -j -o -qq $fileName "ytl/$fileNameDD"
-					unzip -j -o -qq $fileName "ytl/$(fileNameDD).sha256"
+					unzip -j -o -qq $fileName "ytl/${fileNameDD}.sha256"
 					rm -fv $fileName >/dev/null 2>&1
 					if [ $? -eq 0 ]; then
 						echo "Tiedoston purkaminen onnistui. Päivitys suoritettu onnistuneesti."
