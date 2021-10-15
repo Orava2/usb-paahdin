@@ -227,12 +227,14 @@ function checkUpdates {
 				if [ true ]; then
 					# Clear terminal so user can easily read (wget printed a lot stuff)
 					clear
-					echo -e "Tiedosto ladattiin ja tarkistettiin - se on kunnossa. Puretaan tiedostoa...\nTässä saattaa kestää hetki, odota rauhassa."
+					echo -e "Tiedosto ladattiin. Puretaan tiedostoa...\nTässä saattaa kestää hetki, odota rauhassa."
 
 					# -o  = force overwriting
 					# -qq = very quiet operation
 					# Purun jälkeen poistetaan zip-tiedosto. Tulostukset myöhemmin mahdollisesti logiin.
-					unzip -j -o -qq $fileName "ytl/$fileNameDD" && rm -fv $fileName >/dev/null 2>&1
+					unzip -j -o -qq $fileName "ytl/$fileNameDD"
+					unzip -j -o -qq koe.img.sha256 "ytl/koe.img.sha256"
+					rm -fv $fileName >/dev/null 2>&1
 					if [ $? -eq 0 ]; then
 						echo "Tiedoston purkaminen onnistui. Päivitys suoritettu onnistuneesti."
 						cd $path
