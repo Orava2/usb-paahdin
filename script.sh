@@ -221,13 +221,13 @@ function checkUpdates {
 			# Check if download succeeded
 			if [ $? -eq 0 ]; then
 				# Succeeded, check MD5 sum
-				echo "Tarkistetaan ladattua tiedostoa."		
-				# md5-tiedostoa ei ole enää saatavilla, joten tarkistus ohitetaan.
+				# echo "Tarkistetaan ladattua tiedostoa."		
+				# md5-tiedostoa ei ole enää saatavilla, joten tarkistus ohitetaan. Ei enää käytössä.
 				# if md5sum -c "${fileName}.md5"; then
 				if [ true ]; then
 					# Clear terminal so user can easily read (wget printed a lot stuff)
 					clear
-					echo -e "Tiedosto ladattiin. Puretaan tiedostoa...\nTässä saattaa kestää hetki, odota rauhassa."
+					echo -e "Tiedosto ladattiin. Puretaan ja tarkistetaan tiedostoa...\nTässä saattaa kestää hetki, odota rauhassa."
 
 					# -o  = force overwriting
 					# -qq = very quiet operation
@@ -235,6 +235,7 @@ function checkUpdates {
 					unzip -j -o -qq $fileName "ytl/$fileNameDD"
 					unzip -j -o -qq $fileName "ytl/${fileNameDD}.sha256"
 					rm -fv $fileName >/dev/null 2>&1
+					sha256sum -c "${fileNameDD}.sha256"
 					if [ $? -eq 0 ]; then
 						echo "Tiedoston purkaminen onnistui. Päivitys suoritettu onnistuneesti."
 						cd $path
