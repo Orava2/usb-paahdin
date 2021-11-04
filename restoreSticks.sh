@@ -55,11 +55,11 @@ function mkfat () {
 }
 
 
-echo -e "${redBk}\nTikut tyhjennet‰‰n ja alustetaan FAT32-muotoon.\nKAIKKI TIEDOT YHJENNETƒƒN.\nHaluatko jatkaa?${end}"
+echo -e "${redBk}\nTikut tyhjennet√§√§n ja alustetaan FAT32-muotoon.\nKAIKKI TIEDOT YHJENNET√Ñ√ÑN.\nHaluatko jatkaa?${end}"
 			
-	select yn in "Kyll‰" "Ei"; do
+	select yn in "Kyll√§" "Ei"; do
 		case $yn in
-			"Kyll‰")
+			"Kyll√§")
 				echo					
 				break
 				;;
@@ -74,24 +74,24 @@ echo -e "${redBk}\nTikut tyhjennet‰‰n ja alustetaan FAT32-muotoon.\nKAIKKI TIEDO
 
 CONFIRM=none
 
-# Haetaan USB-tikkujen m‰‰r‰, jotka ovat kirjoitettavissa.
+# Haetaan USB-tikkujen m√§√§r√§, jotka ovat kirjoitettavissa.
 enum_usbs
 
-# While on niin kauan tosi, kun k‰ytt‰j‰ ei ole painanut w-n‰pp‰int‰ ja/tai lˆytyneiden USB-tikkujen m‰‰r‰ on 0.
-# Valinnalla c silmukan saa keskeytetty‰.
+# While on niin kauan tosi, kun k√§ytt√§j√§ ei ole painanut w-n√§pp√§int√§ ja/tai l√∂ytyneiden USB-tikkujen m√§√§r√§ on 0.
+# Valinnalla c silmukan saa keskeytetty√§.
 while [ "${CONFIRM}" != "w" -o "${USBS_COUNT}" -le 0 ]; do
 	clear
 
 	#echo "-o ${USBS_COUNT} -le 0"
 
-	# P‰ivitet‰‰‰n USB-tikkujen m‰‰r‰.
+	# P√§ivitet√§√§√§n USB-tikkujen m√§√§r√§.
 	enum_usbs
 
 	echo "USB-tikut ${USBS} (${USBS_COUNT} kpl)"
 
 	if [ "${USBS_COUNT}" == "0" ]; then
 		echo ""
-		echo "Kirjoitettavia USB-tikkuja ei lˆytynyt"
+		echo "Kirjoitettavia USB-tikkuja ei l√∂ytynyt"
 
 	fi
 
@@ -114,10 +114,10 @@ while [ "${CONFIRM}" != "w" -o "${USBS_COUNT}" -le 0 ]; do
 		exit
 	fi
 
-	# Jos k‰ytt‰j‰ yritt‰‰ kirjoitusta, mutta kirjoitettavia USB-tikkuja ei lˆydy.
+	# Jos k√§ytt√§j√§ yritt√§√§ kirjoitusta, mutta kirjoitettavia USB-tikkuja ei l√∂ydy.
 	if [ "${CONFIRM}" = "w" -a "${USBS_COUNT}" -le 0 ]; then
 		echo ""
-		echo "Palautettavia tikkuja ei lˆytynyt. Palautusta ei voida aloittaa."
+		echo "Palautettavia tikkuja ei l√∂ytynyt. Palautusta ei voida aloittaa."
 		echo "Paina enter jatkaaksesi."
 		read
 		
@@ -141,7 +141,7 @@ for THIS_USB in ${USBS}; do
 done
 echo "(${UCOUNT})"
 
-echo "Tikkujen palautus on p‰‰ttynyt!"
+echo "Tikkujen palautus on p√§√§ttynyt!"
 echo "Paina enter jatkaaksesi."
 read
 
