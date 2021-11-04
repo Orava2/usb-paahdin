@@ -55,6 +55,23 @@ function mkfat () {
 }
 
 
+echo -e "${redBk}\nTikut tyhjennetään ja alustetaan FAT32-muotoon.\nKAIKKI TIEDOT YHJENNETÄÄN.\nHaluatko jatkaa?${end}"
+			
+	select yn in "Kyllä" "Ei"; do
+		case $yn in
+			"Kyllä")
+				echo					
+				break
+				;;
+			"Ei")
+				exit
+				break
+				;;
+		esac
+	done
+
+
+
 CONFIRM=none
 
 # Haetaan USB-tikkujen määrä, jotka ovat kirjoitettavissa.
