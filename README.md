@@ -32,6 +32,8 @@ Päivitysten tarkistus: scriptUpdate.sh
 
 USB-paahtimen päivitys: updateScriptFiles.sh
 
+USB-tikkujen palautus FAT32-muotoon: restoreSticks.sh
+
 Valikko edellä mainituille toiminnoille: USB-paahdin.sh
 
 Uusimman ladatun oppilastikun ja palvelimen versiot: versionStudent.txt ja versionServer.txt
