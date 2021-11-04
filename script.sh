@@ -71,6 +71,7 @@ function writeSticksOld {
 		cd "${path}images"
     		printf "Valitse haluamasi versio kirjoittamalla kansion numero ja painamalla enter:\n"
 		select d in */; do test -n "$d" && break; echo ">>> Valinta ei kelpaa, yritä uudelleen"; done
+			# Tähän mahdollisuus valita "Peruuta".
 		cd "${path}"
 
 		if [[ $d == *"ABITTI"* ]]; then

@@ -11,6 +11,7 @@ Valitse toiminto
  2) Kirjoita palvelintikuiksi
  3) Kirjoita vanha versio
  4) Tarkista levykuvien päivitykset
+ 5) Tyhjennä tikut FAT32-muotoon
  9) Tarkista USB-paahtimen päivitykset
  0) Lopeta\n"
 echo -n "#? "
@@ -20,6 +21,7 @@ echo -n "#? "
                 2) ./scriptServer.sh ;;
                 3) ./scriptOld.sh  ;;
                 4) ./scriptUpdate.sh ; menu ;;
+				5) ./restoreSticks.sh ; menu ;;
                 9) ./updateScriptFiles.sh ;;
                         0) exit 0 ;;
                         *) echo -e ${redBk}"Virheellinen valinta!"${end};sleep 1; menu;;

@@ -26,6 +26,9 @@ echo "chmod a+x scriptUpdate.sh"
 chmod a+x updateScriptFiles.sh
 echo "chmod a+x updateScriptFiles.sh"
 
+chmod a+x restoreSticks.sh
+echo "chmod a+x restoreSticks.sh"
+
 chmod +x usb-monster/dd-curses/write_dd.py
 echo "chmod a+x usb-monster/dd-curses/write_dd.py"
 
