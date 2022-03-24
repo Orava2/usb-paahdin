@@ -399,8 +399,8 @@ case $action in
 esac
 
 
-echo -e "\nSulje USB-paahdin painamalla ENTER-näppäintä."
-read
+# echo -e "\nSulje USB-paahdin painamalla ENTER-näppäintä."
+# read
 
 
 
