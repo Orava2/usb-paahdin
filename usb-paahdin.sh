@@ -17,7 +17,7 @@ Valitse toiminto
 echo -n "#? "
         read a
         case $a in
-                1) ./scriptStudent.sh ; menu ;;;
+                1) ./scriptStudent.sh ; menu ;;
                 2) ./scriptServer.sh ; menu ;;
                 3) ./scriptOld.sh  ; menu ;;
                 4) ./scriptUpdate.sh ; menu ;;
