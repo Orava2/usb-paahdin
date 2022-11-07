@@ -30,6 +30,6 @@ chmod a+x restoreSticks.sh
 echo "chmod a+x restoreSticks.sh"
 
 chmod +x usb-monster/dd-curses/write_dd.py
-echo "chmod a+x usb-monster/dd-curses/write_dd.py"
+echo "chmod a+x usb-monster/src/dd_writer.py"
 
 echo "Done"
