@@ -111,7 +111,7 @@ function checkUpdates {
 		latestVersion=$(wget http://static.abitti.fi/etcher-usb/koe-etcher.ver -q -O -)
 	else
 		versionFile='versionServer.txt'
-		fileName='koe-etcher.zip'
+		fileName='ktp-etcher.zip'
 		fileNameDD='ktp.img'
 
 		# Fetch latest version number.
