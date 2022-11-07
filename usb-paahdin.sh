@@ -3,8 +3,8 @@
 redBk='\e[41m'
 end='\e[0m'
  
-versionStudents='cat versionStudent.txt'
-versionServer='cat versionServer.txt'
+versionStudents=$(<versionStudent.txt)
+versionServer=$(<versionServer.txt)
  
 function menu {
 clear
