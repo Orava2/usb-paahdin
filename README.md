@@ -5,7 +5,7 @@ USB-paahdin on joukko Bash-skriptejä, joilla voi ladata sekä päivittää Abit
 ## Asennus Xubuntu-käyttöjärjestelmään
 
 ```
-sudo apt install pv git python2 python-psutil wget unzip coreutils
+sudo apt install pv git python3 wget unzip coreutils
 
 git clone https://github.com/Orava2/usb-paahdin
 

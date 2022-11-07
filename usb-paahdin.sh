@@ -3,15 +3,15 @@
 redBk='\e[41m'
 end='\e[0m'
  
-versionStudents='versionStudent.txt'
-versionServer='versionServer.txt'
+versionStudents='cat versionStudent.txt'
+versionServer='cat versionServer.txt'
  
 function menu {
 clear
 echo -ne "\e[1m\e[7m  ABITTI-tikkuohjelma aka USB-paahdin  \e[0m
 Valitse toiminto
- 1) Kirjoita opiskelijan tikuiksi $(versionStudents)
- 2) Kirjoita palvelintikuiksi $(versionServer)
+ 1) Kirjoita opiskelijan tikuiksi ${versionStudents}
+ 2) Kirjoita palvelintikuiksi ${versionServer}
  3) Kirjoita vanha versio
  4) Tarkista levykuvien päivitykset
  5) Tyhjennä tikut FAT32-muotoon
