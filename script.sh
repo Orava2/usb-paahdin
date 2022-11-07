@@ -240,7 +240,7 @@ function checkUpdates {
 					if [ $? -eq 0 ]; then
 						echo "Tiedoston purkaminen onnistui. Päivitys suoritettu onnistuneesti."
 						cd $path
-						echo $latestVersion>$versionFile
+						echo "${latestVersion}">$versionFile
 					else
 						echo -e "${redBk}Tiedoston purkaminen epäonnistui.\nYritä uudelleen.${end}"
 					fi
@@ -262,6 +262,7 @@ function checkUpdates {
 	fi
 	
 	echo -e "\nJatka painamalla ENTER-näppäintä."
+	read
 }
 
 
