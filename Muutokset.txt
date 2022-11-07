@@ -1,5 +1,8 @@
 MUUTOKSET:
 
+Versio 1.5
+	- USB-Monster päivitetty versioon 1.2.0
+
 Versio 1.4
 	- Korjattu vanhan levykuvan kirjoittaminen. Huom! Levykuva on täytynyt ladata aikaisemmin, kun se on ollut jaossa.
 	- Lisätty päävalikko usb-paahdin.sh.
