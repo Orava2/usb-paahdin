@@ -29,7 +29,7 @@ echo "chmod a+x updateScriptFiles.sh"
 chmod a+x restoreSticks.sh
 echo "chmod a+x restoreSticks.sh"
 
-chmod +x usb-monster/src/writer_dd.py
-echo "chmod a+x usb-monster/src/writer_dd.py"
+chmod +x usb-monster/src/write_dd.py
+echo "chmod a+x usb-monster/src/write_dd.py"
 
 echo "Done"
