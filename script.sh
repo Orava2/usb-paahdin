@@ -32,7 +32,7 @@ function getURL {
 }
 
 # startWriting
-# starts dd_writer.py script provided by YTL
+# starts write_dd.py script provided by YTL
 # $1 - version number
 # $2 - file name to write (usually koe.img or ktp.img)
 function startWriting {
@@ -55,11 +55,11 @@ function startWriting {
 	fi
 		
 	cd "${path}usb-monster/src"
-	./dd_writer.py "${path}images/${1}/${2}"
+	./write_dd.py "${path}images/${1}/${2}"
 }	
 
 # writeSticksOld
-# writes a specified image using dd_writer.py 
+# writes a specified image using write_dd.py 
 # no parameters
 function writeSticksOld {
 	echo -e "${redBk}\nHUOM! OLET KIRJOITTAMASSA VANHAA VERSIOTA ABITISTA.\nTätä toimintoa ei ole yleensä tarpeen käyttää.${end}"
