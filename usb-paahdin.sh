@@ -2,11 +2,10 @@
 
 redBk='\e[41m'
 end='\e[0m'
- 
+  
+function menu {
 versionStudents=$(<versionStudent.txt)
 versionServer=$(<versionServer.txt)
- 
-function menu {
 clear
 echo -ne "\e[1m\e[7m  ABITTI-tikkuohjelma aka USB-paahdin  \e[0m
 Valitse toiminto

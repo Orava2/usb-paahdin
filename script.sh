@@ -240,7 +240,7 @@ function checkUpdates {
 					if [ $? -eq 0 ]; then
 						echo "Tiedoston purkaminen onnistui. Päivitys suoritettu onnistuneesti."
 						cd $path
-						echo $latestVersion > $versionFile
+						echo $latestVersion>$versionFile
 					else
 						echo -e "${redBk}Tiedoston purkaminen epäonnistui.\nYritä uudelleen.${end}"
 					fi
@@ -260,6 +260,8 @@ function checkUpdates {
 	else
 		echo -e "${redBk}Virhe! Abitti-palvelimeen ei saatu yhteyttä.\nTarkista, että internetyhteys on toiminnassa.${end}"
 	fi
+	
+	echo -e "\nJatka painamalla ENTER-näppäintä."
 }
 
 
