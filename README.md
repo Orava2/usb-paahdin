@@ -34,6 +34,17 @@ USB-paahtimen päivitys: updateScriptFiles.sh
 
 USB-tikkujen palautus FAT32-muotoon: restoreSticks.sh
 
+Uusimman ladatun oppilastikun ja palvelimen versiot: versionStudent.txt ja versionServer.txt
+
 Valikko edellä mainituille toiminnoille: USB-paahdin.sh
 
-Uusimman ladatun oppilastikun ja palvelimen versiot: versionStudent.txt ja versionServer.txt
+	ABITTI-tikkuohjelma aka USB-paahdin  
+	Valitse toiminto
+	1) Kirjoita opiskelijan tikuiksi ABITTI2244B
+	2) Kirjoita palvelintikuiksi SERVER2244T
+	3) Kirjoita vanha versio
+	4) Tarkista levykuvien päivitykset
+	5) Tyhjennä tikut FAT32-muotoon
+	9) Tarkista USB-paahtimen päivitykset
+	0) Lopeta
+	#? 
