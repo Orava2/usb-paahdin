@@ -6,7 +6,7 @@ import subprocess, signal, select, re, fcntl, os, hashlib, time, psutil, stat
 class dd_writer (object):
 	def __init__ (self):
 		# Large block size (5 Mb) works at least with small number of USB sticks
-		self.DD_BLOCK_SIZE="5242880"
+		self.DD_BLOCK_SIZE="1M"
 		self.STATUS_CODE_LEGEND = ['-', 'writing', 'verifying', 'finished', 'error', 'failed', 'timeout', '(timeout)', 'slow', '(slow)']
 		self.RE_OUTPUT = { 'bytes_transferred': '(\d+)', 'md5sum': '([0-9a-f]{32}) ' }
 		# Write timeout in seconds to cause status "timeout"
