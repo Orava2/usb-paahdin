@@ -41,26 +41,66 @@ get_file_ext () {
   echo $EXT
 }
 
+get_just_hash_part () {
+  # "417e0869e1f7faf554fbdd8d3e5e9f5dc6bb9625b44551518077c925598b5527  koe.img"
+  # becomes
+  # "417e0869e1f7faf554fbdd8d3e5e9f5dc6bb9625b44551518077c925598b5527"
+
+  HASH_FILE=$1
+  echo `cat $1 | sed -e 's/\s\+.\+\$//'`
+}
+
 unzip_etcher_zip () {
   ETCHERZIP=$1
+  VERSION_STRING=$2
   ETCHERZIPBASENAME=`basename $1`
-  ETCHERTEMP=`mktemp --tmpdir -d usb-monster-etcher.XXXXX`
-  unzip -qq ${ETCHERZIP} ytl/ktp.img ytl/koe.img -d ${ETCHERTEMP} \
+  ETCHERZIPIMAGE=`mktemp --tmpdir usb-monster-temp-image.${VERSION_STRING}.XXXXX`
+  unzip -qq -p ${ETCHERZIP} ytl/ktp.img ytl/koe.img \
+    | dd of=${ETCHERZIPIMAGE} 2>&1 \
     | zenity --title="$TITLE" --text="Unpacking ${ETCHERZIPBASENAME}..." --no-cancel --progress --pulsate --auto-close
-  ETCHERZIPIMAGE=`find ${ETCHERTEMP} | grep .img`
 
-  if [ -z "${ETCHERZIPIMAGE}" ]
+  if [ -s "${ETCHERZIPIMAGE}" ]
   then
-    # File does not contain valid image file
-    echo
+    # File has content so it is probably a valid image file
+    echo ${ETCHERZIPIMAGE}
   else
-    ETCHERIMAGE=`mktemp --tmpdir usb-monster.XXXXX`
-    mv ${ETCHERZIPIMAGE} ${ETCHERIMAGE}
-    rm -fR ${ETCHERTEMP}
-    echo ${ETCHERIMAGE}
+    # File has no content
+    echo
   fi
 }
 
+get_etcher_zip_version_string () {
+  ETCHERZIP=$1
+  ETCHERZIP_METAFILE=`mktemp --tmpdir usb-monster-temp-meta-file.XXXXX`
+  unzip -qq -p ${ETCHERZIP} ytl/.meta/manifest.json \
+    | dd of=${ETCHERZIP_METAFILE} 2>&1 \
+    | zenity --title="$TITLE" --text="Extracting image version..." --no-cancel --progress --pulsate --auto-close
+  
+  echo `cat ${ETCHERZIP_METAFILE} | grep '"name"' | sed 's/.*name": "\(.\+\)".*/\1/' | sed 's/[^A-Z0-9]//g'`
+  rm ${ETCHERZIP_METAFILE}
+}
+
+get_etcher_zip_image_hash_expected () {
+  ETCHERZIP=$1
+  ETCHERZIPHASHFILE=`mktemp --tmpdir usb-monster-temp-image-hash.XXXXX`
+  unzip -qq -p ${ETCHERZIP} ytl/koe.img.sha256 ytl/ktp.img.sha256 \
+    | dd of=${ETCHERZIPHASHFILE} 2>&1 \
+    | zenity --title="$TITLE" --text="Extracting image checksum..." --no-cancel --progress --pulsate --auto-close
+  
+  get_just_hash_part ${ETCHERZIPHASHFILE}
+  rm ${ETCHERZIPHASHFILE}
+}
+
+get_etcher_zip_image_hash_observed () {
+  IMAGEFILE=$1
+  HASH_OUTPUT=`mktemp --tmpdir usb-monster-temp-image-hash.XXXXX`
+  sha256sum ${IMAGEFILE} \
+    | dd of=${HASH_OUTPUT} 2>&1 \
+    | zenity --title="$TITLE" --text="Calculating image checksum..." --no-cancel --progress --pulsate --auto-close
+  
+  get_just_hash_part ${HASH_OUTPUT}
+  rm ${HASH_OUTPUT}
+}
 
 # Make sure we have Zenity
 if [ -z "`which zenity`" ]; then
@@ -107,12 +147,26 @@ while [ -z ${IMAGEFILE} ]; do
 
   if [ "${IMAGE_EXT}" = "zip" ]; then
     write_message "User selected .zip file, trying to extract Etcher zip"
-    UNZIPPED_IMAGEFILE=`unzip_etcher_zip ${IMAGEFILE}`
+
+    VERSION_STRING=`get_etcher_zip_version_string ${IMAGEFILE}`
+
+    UNZIPPED_IMAGEFILE=`unzip_etcher_zip ${IMAGEFILE} ${VERSION_STRING}`
     if [ -z "${UNZIPPED_IMAGEFILE}" ]; then
       write_message "File ${IMAGEFILE} does not contain MEB image file"
       show_popup "File ${IMAGEFILE} does not contain MEB image file"
       exit 1
     fi
+
+    UNZIPPED_IMAGEFILE_HASH_EXPECTED=`get_etcher_zip_image_hash_expected ${IMAGEFILE}`
+    UNZIPPED_IMAGEFILE_HASH_OBSERVED=`get_etcher_zip_image_hash_observed ${UNZIPPED_IMAGEFILE}`
+
+    if [ "${UNZIPPED_IMAGEFILE_HASH_EXPECTED}" != "${UNZIPPED_IMAGEFILE_HASH_OBSERVED}" ]; then
+      write_message "File hash mismatch, expected: '${UNZIPPED_IMAGEFILE_HASH_EXPECTED}' observed: '${UNZIPPED_IMAGEFILE_HASH_OBSERVED}'"
+      show_popup "Extracted file does not pass checksum test. Exiting."
+      rm ${UNZIPPED_IMAGEFILE}
+      exit 1
+    fi
+
     IMAGEFILE="${UNZIPPED_IMAGEFILE}"
     TEMPORARY_IMAGEFILE="${UNZIPPED_IMAGEFILE}"
   fi
@@ -125,13 +179,16 @@ while [ -z ${IMAGEFILE} ]; do
 done
 
 # Main loop
+uid=`id -u`
 while [ true ]; do
-  /usr/bin/pkexec /usr/local/lib/digabi-usb-monster/write_dd.py "$IMAGEFILE"
+  /usr/bin/pkexec /usr/local/lib/digabi-usb-monster/write_dd.py "$IMAGEFILE" --uid=$uid
 
   zenity --question --title="$TITLE: Again?" --text="Write another set with same image file?" --cancel-label="Write again" --ok-label="Finish writing"
   if [ $? -ne 1 ]; then
     if [ ! -z "$TEMPORARY_IMAGEFILE" ]; then
       rm $TEMPORARY_IMAGEFILE
+
+      rm -f $TEMPORARY_IMAGEFILE.md5
     fi
     
     # Normal termination
