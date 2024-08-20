@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Siirry skriptin hakemistoon.
+cd "$(dirname "$0")"
+
 redBk='\e[41m'
 end='\e[0m'
   
