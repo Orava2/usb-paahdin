@@ -363,7 +363,7 @@ class dd_writer (object):
 		self.set_bytes_transferred(0)
 
 		self.dd_operation = "verify"
-		dd_params = ['/bin/sh', '-c', 'dd if=%s bs=%s | head -c %d | pv -n -b | md5sum' % (diskname, self.DD_BLOCK_SIZE, self.dd_image_size) ]
+		dd_params = ['/bin/sh', '-c', 'dd iflag=direct if=%s bs=%s | head -c %d | pv -n -b | md5sum' % (diskname, self.DD_BLOCK_SIZE, self.dd_image_size) ]
 		self.write_debug(['verifying', dd_params])
 		self.dd_handle = subprocess.Popen(dd_params, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
